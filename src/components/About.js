@@ -9,6 +9,7 @@ export default function About() {
         color: 'black',
         backgroundColor: 'white',
     }
+    // React Hooks - useState
     const [myStyle, setMyStyle] = useState(liteStyle);
     const [btnText,setBtnText] = useState('Enable Dark Mode');
     const [btnClass,setBtnClass] = useState('btn btn-dark my-3');
@@ -23,12 +24,7 @@ export default function About() {
             setBtnText('Enable Light Mode')
             setBtnClass('btn btn-light my-3')
             }
-        }   
-
-    // let myStyle = { color: 'black', backgroundColor: 'white', }
-    // let btnText = 'Enable Dark Mode'
-    // const togleStyle = () => { console.log("Clk") }
-    
+        }       
     
   return (
       <div className='container' style={myStyle}>
