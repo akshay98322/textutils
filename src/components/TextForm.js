@@ -13,6 +13,20 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText);
     }
+    // Clear Text
+    const handleClClick = () =>{
+        let newText = "";
+        setText(newText);
+    }
+    // Capatilize Text
+    const handleCapClick = () =>{
+        if (text !== ""){
+            let newText = text[0].toUpperCase() + text.substring(1).toLowerCase();
+            setText(newText);
+        } else {
+            alert("Please enter text first");
+        }
+    }
     // to handle change in TextArea
     const handleOnChange = (event) =>{
         setText(event.target.value);
@@ -28,8 +42,10 @@ export default function TextForm(props) {
             <div className="mb-3">
                 <textarea className="form-control" placeholder={placeholder} value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>                
             </div>   
-            <button className="btn btn-primary" onClick={handleUpClick}>Upper</button>   
-            <button className="btn btn-success mx-3" onClick={handleLoClick}>Lower</button>       
+            <button className="btn btn-primary mx-1" onClick={handleUpClick}>Upper</button>   
+            <button className="btn btn-success mx-1" onClick={handleLoClick}>Lower</button>
+            <button className="btn btn-danger mx-1" onClick={handleClClick}>Clear</button>
+            <button className="btn btn-info mx-1" onClick={handleCapClick}>Capitalize</button>       
         </div>
         <div className="container my-3">
             <h2>Your Text summary</h2>
