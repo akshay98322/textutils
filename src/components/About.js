@@ -1,27 +1,33 @@
-import { useState } from "react/cjs/react.production.min"
-import React from 'react'
+import React,{ useState } from 'react'
 
 export default function About() {
-    // React Hooks - useState
-    const [myStyle, setMyStyle] = useState({
+    const darkStyle = {
+        color: 'white',
+        backgroundColor: 'black',}
+
+    const liteStyle = {
         color: 'black',
         backgroundColor: 'white',
-    });
+    }
+    const [myStyle, setMyStyle] = useState(liteStyle);
     const [btnText,setBtnText] = useState('Enable Dark Mode');
+    const [btnClass,setBtnClass] = useState('btn btn-dark my-3');
     const togleStyle = ()=> {
-        if (myStyle.color === 'black') {
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black', })
-                setBtnText('Enable Light Mode')
+        if (myStyle.backgroundColor === 'black') {
+            setMyStyle(liteStyle)
+            setBtnText('Enable Dark Mode')
+            setBtnClass('btn btn-dark my-3')
             }
         else {
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white', })
-                setBtnText('Enable Dark Mode')
+            setMyStyle(darkStyle)
+            setBtnText('Enable Light Mode')
+            setBtnClass('btn btn-light my-3')
             }
-        }       
+        }   
+
+    // let myStyle = { color: 'black', backgroundColor: 'white', }
+    // let btnText = 'Enable Dark Mode'
+    // const togleStyle = () => { console.log("Clk") }
     
     
   return (
@@ -65,7 +71,7 @@ export default function About() {
                 </div>
             </div>
             </div>
-            <button onClick={togleStyle} type="button" className="btn btn-dark my-3" >{btnText}</button>
+            <button onClick={togleStyle} type="button" className={btnClass} >{btnText}</button>
       </div>
     
   )
